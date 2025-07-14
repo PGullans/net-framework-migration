@@ -13,7 +13,7 @@ namespace Ok.Framework.Db.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202507141423444_Initial-Schema"; }
+            get { return "202507141446490_Initial-Schema"; }
         }
         
         string IMigrationMetadata.Source

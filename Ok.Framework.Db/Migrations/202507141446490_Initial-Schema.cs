@@ -27,11 +27,11 @@
                         LastName = c.String(),
                         Email = c.String(),
                         ModifiedOn = c.DateTime(nullable: false),
-                        Account_AccountId = c.Guid(),
+                        AccountId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.ContactId)
-                .ForeignKey("dbo.Accounts", t => t.Account_AccountId)
-                .Index(t => t.Account_AccountId);
+                .ForeignKey("dbo.Accounts", t => t.AccountId, cascadeDelete: true)
+                .Index(t => t.AccountId);
             
             CreateTable(
                 "dbo.Orders",
@@ -40,20 +40,20 @@
                         OrderId = c.Guid(nullable: false),
                         Name = c.String(),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Account_AccountId = c.Guid(),
+                        AccountId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.OrderId)
-                .ForeignKey("dbo.Accounts", t => t.Account_AccountId)
-                .Index(t => t.Account_AccountId);
+                .ForeignKey("dbo.Accounts", t => t.AccountId, cascadeDelete: true)
+                .Index(t => t.AccountId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Orders", "Account_AccountId", "dbo.Accounts");
-            DropForeignKey("dbo.Contacts", "Account_AccountId", "dbo.Accounts");
-            DropIndex("dbo.Orders", new[] { "Account_AccountId" });
-            DropIndex("dbo.Contacts", new[] { "Account_AccountId" });
+            DropForeignKey("dbo.Orders", "AccountId", "dbo.Accounts");
+            DropForeignKey("dbo.Contacts", "AccountId", "dbo.Accounts");
+            DropIndex("dbo.Orders", new[] { "AccountId" });
+            DropIndex("dbo.Contacts", new[] { "AccountId" });
             DropTable("dbo.Orders");
             DropTable("dbo.Contacts");
             DropTable("dbo.Accounts");

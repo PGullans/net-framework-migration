@@ -52,9 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbContext.cs" />
-    <Compile Include="Migrations\202507141423444_Initial-Schema.cs" />
-    <Compile Include="Migrations\202507141423444_Initial-Schema.Designer.cs">
-      <DependentUpon>202507141423444_Initial-Schema.cs</DependentUpon>
+    <Compile Include="Migrations\202507141446490_Initial-Schema.cs" />
+    <Compile Include="Migrations\202507141446490_Initial-Schema.Designer.cs">
+      <DependentUpon>202507141446490_Initial-Schema.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Contact.cs" />
@@ -67,8 +67,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202507141423444_Initial-Schema.resx">
-      <DependentUpon>202507141423444_Initial-Schema.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202507141446490_Initial-Schema.resx">
+      <DependentUpon>202507141446490_Initial-Schema.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
