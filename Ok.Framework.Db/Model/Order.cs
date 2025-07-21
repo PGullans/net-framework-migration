@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ok.Framework.Db.Model
 {
-    public class Order
+    public class Order : DbModel
     {
         [Key]
         public Guid OrderId { get; set; }

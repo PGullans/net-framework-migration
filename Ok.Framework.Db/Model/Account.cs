@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Ok.Framework.Db.Model
 {
-    public class Account
+    public class Account : DbModel
     {
         [Key]
         public Guid AccountId { get; set; }

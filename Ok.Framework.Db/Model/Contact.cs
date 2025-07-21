@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ok.Framework.Db.Model
 {
-    public class Contact
+    public class Contact : DbModel
     {
         [Key]
         public Guid ContactId { get; set; }
