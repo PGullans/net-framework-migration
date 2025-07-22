@@ -32,14 +32,14 @@
             context.Orders.AddOrUpdate(
                 new Order() { OrderId = new Guid("1d1356a1-85fd-4770-afd9-c45b1c120c9f"), Price = 500, Name = "Order 500", AccountId = accountId1 },
                 new Order() { OrderId = new Guid("1eb0dc05-8678-4b0b-b3eb-543d3c08a02d"), Price = 1000, Name = "Order 1000", AccountId = accountId1 },
-                new Order() { OrderId = new Guid("40222d99-b2ba-4a76-8597-ecce0dba64e3"), Price = 2000, Name = "Order 2000", AccountId = accountId1 },
+                new Order() { OrderId = new Guid("40222d99-b2ba-4a76-8597-ecce0dba64e3"), Price = 2000, Name = "Order 2000", AccountId = accountId2 },
                 new Order() { OrderId = new Guid("0e33ee38-9553-4cdf-a832-e5814454d3a9"), Price = 5000, Name = "Order 5000", AccountId = accountId1 },
-                new Order() { OrderId = new Guid("75551870-6910-423a-b8b3-dac02c22c911"), Price = 8000, Name = "Order 8000", AccountId = accountId1 }
+                new Order() { OrderId = new Guid("75551870-6910-423a-b8b3-dac02c22c911"), Price = 8000, Name = "Order 8000", AccountId = accountId2 }
              );
 
             context.Contacts.AddOrUpdate(
-                new Contact() { ContactId = new Guid("67a86470-3cf5-4123-9daa-641954c52d25"), FirstName = "Paul", LastName = "Objekt", AccountId = accountId1, ModifiedOn = DateTime.UtcNow, Email = "testmail@fakebox.com" },
-                new Contact() { ContactId = new Guid("47b60c05-a429-46c8-8291-2c69e4c839b2"), FirstName = "Milena", LastName = "Suspekt", AccountId = accountId2, ModifiedOn = DateTime.UtcNow, Email = "testmail@fakebox.com" }
+                new Contact() { ContactId = new Guid("67a86470-3cf5-4123-9daa-641954c52d25"), FirstName = "Paul", LastName = "Objekt", AccountId = accountId1, ModifiedOn = DateTime.UtcNow, Email = "paul.objekt@fakebox.com" },
+                new Contact() { ContactId = new Guid("47b60c05-a429-46c8-8291-2c69e4c839b2"), FirstName = "Milena", LastName = "Suspekt", AccountId = accountId2, ModifiedOn = DateTime.UtcNow, Email = "milena.suspekt@fakebox.com" }
              );
         }
     }

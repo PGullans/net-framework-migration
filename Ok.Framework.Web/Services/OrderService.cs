@@ -25,5 +25,17 @@ namespace Ok.Framework.Web.Services
         {
             return _orderRepository.GetById(orderId);
         }
+
+        public Order Upsert(Order order)
+        {
+
+
+            return order;
+        }
+
+        public void Delete(Guid Id)
+        {
+
+        }
     }
 }

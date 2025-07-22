@@ -1,11 +1,11 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
-
-using Ok.Framework.Db.Config;
+using Autofac.Integration.WebApi;
 
 using Owin;
 
 using System.Reflection;
+using System.Web.Http;
 using System.Web.Mvc;
 
 namespace Ok.Framework.Web
@@ -21,11 +21,11 @@ namespace Ok.Framework.Web
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
             // OPTIONAL: Register model binders that require DI.
+            builder.RegisterModelBinders(Assembly.GetExecutingAssembly());
             builder.RegisterModelBinderProvider();
 
             // OPTIONAL: Register web abstractions like HttpContextBase.
             builder.RegisterModule<AutofacWebTypesModule>();
-            builder.RegisterModelBinders(Assembly.GetExecutingAssembly());
             builder.RegisterModule<WebIocModule>();
 
             // OPTIONAL: Enable property injection in view pages.W
@@ -34,8 +34,13 @@ namespace Ok.Framework.Web
             // OPTIONAL: Enable property injection into action filters.
             builder.RegisterFilterProvider();
 
+            // Register your Web API controllers.
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
+            var config = GlobalConfiguration.Configuration;
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             // REGISTER WITH OWIN

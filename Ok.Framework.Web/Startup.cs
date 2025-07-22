@@ -1,5 +1,10 @@
-﻿using Owin;
+﻿using Microsoft.Owin;
 
+using Ok.Framework.Db;
+
+using Owin;
+
+[assembly: OwinStartupAttribute(typeof(Ok.Framework.Web.Startup))]
 namespace Ok.Framework.Web
 {
     public partial class Startup
