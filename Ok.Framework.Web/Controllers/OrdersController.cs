@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -21,6 +22,9 @@ namespace Ok.Framework.Web.Controllers
         // GET: Orders
         public ActionResult Index()
         {
+            if (ConfigurationManager.AppSettings["Db.ShowVersion"].ToLower() == "true")
+                ViewBag.DbInfo = "Database Versioninfo: " + ConfigurationManager.AppSettings["Db.Version"];
+            
             var orders = _orderService.GetAll();
             return View(orders.ToList());
         }
